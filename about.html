@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>会社概要 | 株式会社Slovia</title>
+    <meta name="description" content="株式会社Sloviaの会社概要。人材紹介・衛星データ活用コンサルティング・ビジネスアプリ開発。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Space+Mono:wght@400;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-bg: #0D1117; --color-bg-surface: #1A2E1A; --color-bg-elevated: #2D4A2D;
+            --color-accent: #A8E063; --color-accent-dim: rgba(168,224,99,0.15);
+            --color-sage: #4A7C59; --color-gold: #C9A84C; --color-text: #F5F0E8;
+            --color-text-muted: rgba(245,240,232,0.55); --color-text-subtle: rgba(245,240,232,0.25);
+            --color-border: rgba(255,255,255,0.07); --color-border-hover: rgba(168,224,99,0.25);
+            --font-display: 'Syne', sans-serif; --font-body: 'DM Sans', 'Noto Sans JP', sans-serif;
+            --font-mono: 'Space Mono', monospace;
+        }
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        html{scroll-behavior:smooth}
+        body{background:var(--color-bg);color:var(--color-text);font-family:var(--font-body);font-weight:300;font-size:15px;line-height:1.75;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+        a{color:inherit;text-decoration:none}
+
+        .grain{position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:0.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-repeat:repeat;background-size:256px}
+
+        .nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;height:72px;display:flex;align-items:center;justify-content:space-between;background:rgba(13,17,23,0.85);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--color-border)}
+        .nav-logo{font-family:var(--font-display);font-weight:800;font-size:20px;letter-spacing:-0.02em}
+        .nav-logo .via{color:var(--color-accent)}
+        .nav-logo .inc{color:var(--color-text-subtle);font-weight:400;font-size:11px;margin-left:8px;letter-spacing:0.05em}
+        .nav-links{display:flex;gap:32px;list-style:none}
+        .nav-links a{font-size:13px;font-weight:400;color:var(--color-text-muted);transition:color 0.2s}
+        .nav-links a:hover{color:var(--color-text)}
+        .nav-hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px}
+        .nav-hamburger span{display:block;width:20px;height:1.5px;background:var(--color-text);margin:5px 0}
+
+        .section-label{font-family:var(--font-mono);font-size:11px;letter-spacing:0.25em;color:var(--color-accent);text-transform:uppercase;display:flex;align-items:center;gap:16px;margin-bottom:48px}
+        .section-label::after{content:'';height:1px;width:60px;background:var(--color-accent);opacity:0.4}
+        .section-divider{height:1px;background:linear-gradient(to right,transparent,rgba(255,255,255,0.08),transparent)}
+
+        .page-header{padding:180px 80px 80px;position:relative}
+        .page-header-glow{position:absolute;top:0;left:-10%;width:50%;height:100%;background:radial-gradient(ellipse at center,rgba(168,224,99,0.03) 0%,transparent 70%);pointer-events:none}
+        .page-inner{max-width:800px;margin:0 auto;position:relative}
+        .page-header h1{font-family:var(--font-display);font-weight:800;font-size:clamp(32px,4vw,44px);letter-spacing:-0.03em;line-height:1.3}
+        .page-header h1 em{color:var(--color-accent);font-style:normal}
+
+        .message-section{padding:0 80px 100px}
+        .message-inner{max-width:800px;margin:0 auto}
+        .message-block{background:var(--color-bg-surface);border:1px solid var(--color-border);border-radius:16px;padding:48px;position:relative}
+        .message-quote{position:absolute;top:24px;left:32px;font-family:var(--font-display);font-size:80px;color:var(--color-accent);opacity:0.12;line-height:1}
+        .message-title{font-family:var(--font-mono);font-size:11px;letter-spacing:0.2em;color:var(--color-sage);text-transform:uppercase;margin-bottom:24px}
+        .message-block h3{font-family:var(--font-display);font-weight:700;font-size:22px;letter-spacing:-0.02em;margin-bottom:20px;line-height:1.4}
+        .message-block p{color:var(--color-text-muted);font-weight:300;line-height:2;margin-bottom:12px}
+        .message-block p:last-child{margin-bottom:0}
+
+        .info-section{padding:100px 80px}
+        .info-inner{max-width:800px;margin:0 auto}
+        .info-table{width:100%;border-collapse:collapse}
+        .info-table tr{border-bottom:1px solid var(--color-border)}
+        .info-table th{font-family:var(--font-mono);font-size:11px;letter-spacing:0.15em;color:var(--color-text-subtle);text-transform:uppercase;text-align:left;padding:20px 24px 20px 0;width:160px;vertical-align:top;font-weight:400}
+        .info-table td{padding:20px 0;color:var(--color-text);font-weight:300}
+        .info-note{font-size:12px;color:var(--color-gold);font-weight:400;margin-top:4px}
+
+        .footer{padding:48px 80px;border-top:1px solid var(--color-border);display:flex;align-items:center;justify-content:space-between}
+        .footer-left{display:flex;align-items:center;gap:24px}
+        .footer-logo{font-family:var(--font-display);font-weight:800;font-size:16px}
+        .footer-logo .via{color:var(--color-accent)}
+        .footer-copy{font-family:var(--font-mono);font-size:10px;color:var(--color-text-subtle);letter-spacing:0.1em}
+        .footer-links{display:flex;gap:24px}
+        .footer-links a{font-size:12px;color:var(--color-text-subtle);transition:color 0.2s}
+        .footer-links a:hover{color:var(--color-text-muted)}
+
+        .fade-in{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease}
+        .fade-in.visible{opacity:1;transform:translateY(0)}
+
+        @media(max-width:900px){
+            .nav{padding:0 24px}
+            .nav-links{display:none}
+            .nav-hamburger{display:block}
+            .nav-links.open{display:flex;flex-direction:column;position:absolute;top:72px;left:0;right:0;background:rgba(13,17,23,0.95);backdrop-filter:blur(16px);padding:24px;gap:20px;border-bottom:1px solid var(--color-border)}
+            .page-header{padding:140px 24px 60px}
+            .message-section{padding:0 24px 80px}
+            .info-section{padding:80px 24px}
+            .message-block{padding:32px 24px}
+            .info-table th{width:120px;font-size:10px;padding-right:16px}
+            .footer{padding:32px 24px;flex-direction:column;gap:16px;text-align:center}
+            .footer-left{flex-direction:column;gap:8px}
+        }
+    </style>
+</head>
+<body>
+    <div class="grain"></div>
+
+    <nav class="nav">
+        <a href="/" class="nav-logo">Slo<span class="via">via</span><span class="inc">Inc.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/#services">サービス</a></li>
+            <li><a href="/#blog">ブログ</a></li>
+            <li><a href="/#app">アプリ</a></li>
+            <li><a href="/about.html">会社概要</a></li>
+            <li><a href="/contact.html">お問い合わせ</a></li>
+        </ul>
+        <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="メニュー">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <header class="page-header">
+        <div class="page-header-glow"></div>
+        <div class="page-inner">
+            <div class="section-label">About</div>
+            <h1>株式会社<em>Slovia</em>について</h1>
+        </div>
+    </header>
+
+    <div class="message-section">
+        <div class="message-inner fade-in">
+            <div class="message-block">
+                <div class="message-quote">"</div>
+                <div class="message-title">Representative Message</div>
+                <h3>三つの専門性で、<br>課題に向き合う。</h3>
+                <p>Sloviaは、人材紹介・衛星データ活用コンサルティング・ビジネスアプリ開発という三つの独立した事業を展開しています。</p>
+                <p>人材紹介では、学歴や転職回数ではなくその人の本質的な力を見極め、最適なキャリアへと導きます。衛星データ活用では、宇宙産業の専門知識を活かし新規事業の創出を支援します。そしてアプリ開発では、実務経験から生まれたプロダクトで業務課題を解決します。</p>
+                <p>クライアント一人ひとりと丁寧に向き合うことを大切にしています。</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <section class="info-section">
+        <div class="info-inner">
+            <div class="section-label">Company</div>
+            <h2 style="font-family:var(--font-display);font-weight:800;font-size:28px;letter-spacing:-0.02em;margin-bottom:48px">会社概要</h2>
+            <table class="info-table fade-in">
+                <tr><th>会社名</th><td>株式会社Slovia<div class="info-note">※ 株式会社Tsumugiより商号変更（2026年3月）</div></td></tr>
+                <tr><th>設立</th><td>2025年1月</td></tr>
+                <tr><th>所在地</th><td>〒892-0847 鹿児島県鹿児島市西千石町11-21 鹿児島MSビル 5F・6F</td></tr>
+                <tr><th>代表者</th><td>屋野天祥</td></tr>
+                <tr><th>事業内容</th><td>人材紹介業<br>衛星データ利活用コンサルティング<br>ビジネスアプリケーション開発</td></tr>
+                <tr><th>URL</th><td><a href="https://slovia.jp" style="color:var(--color-accent)">https://slovia.jp</a></td></tr>
+            </table>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-left">
+            <span class="footer-logo">Slo<span class="via">via</span></span>
+            <span class="footer-copy">© 2025 株式会社Slovia All rights reserved.</span>
+        </div>
+        <div class="footer-links">
+            <a href="/#services">サービス</a>
+            <a href="/#blog">ブログ</a>
+            <a href="/about.html">会社概要</a>
+            <a href="/contact.html">お問い合わせ</a>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu(){document.getElementById('navLinks').classList.toggle('open')}
+        const observer=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('visible')})},{threshold:0.1});
+        document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+        document.querySelectorAll('.nav-links a').forEach(l=>{l.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('open'))});
+    </script>
+</body>
+</html>

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>株式会社Slovia | 多様な専門性で、あなたの課題に向き合う。</title>
+    <meta name="description" content="人材紹介・衛星データ活用コンサルティング・ビジネスアプリ開発。三つの専門領域で事業をサポートする株式会社Slovia。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Space+Mono:wght@400;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-bg: #0D1117; --color-bg-surface: #1A2E1A; --color-bg-elevated: #2D4A2D;
+            --color-accent: #A8E063; --color-accent-dim: rgba(168,224,99,0.15);
+            --color-accent-glow: rgba(168,224,99,0.08); --color-sage: #4A7C59;
+            --color-gold: #C9A84C; --color-text: #F5F0E8;
+            --color-text-muted: rgba(245,240,232,0.55); --color-text-subtle: rgba(245,240,232,0.25);
+            --color-text-inverse: #0D1117; --color-border: rgba(255,255,255,0.07);
+            --color-border-hover: rgba(168,224,99,0.25);
+            --font-display: 'Syne', sans-serif; --font-body: 'DM Sans', 'Noto Sans JP', sans-serif;
+            --font-mono: 'Space Mono', monospace;
+        }
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        html{scroll-behavior:smooth}
+        body{background:var(--color-bg);color:var(--color-text);font-family:var(--font-body);font-weight:300;font-size:15px;line-height:1.75;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+        a{color:inherit;text-decoration:none}
+
+        .grain{position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:0.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-repeat:repeat;background-size:256px}
+
+        /* NAV */
+        .nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;height:72px;display:flex;align-items:center;justify-content:space-between;background:rgba(13,17,23,0.85);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--color-border)}
+        .nav-logo{font-family:var(--font-display);font-weight:800;font-size:20px;letter-spacing:-0.02em}
+        .nav-logo .via{color:var(--color-accent)}
+        .nav-logo .inc{color:var(--color-text-subtle);font-weight:400;font-size:11px;margin-left:8px;letter-spacing:0.05em}
+        .nav-links{display:flex;gap:32px;list-style:none}
+        .nav-links a{font-size:13px;font-weight:400;color:var(--color-text-muted);transition:color 0.2s}
+        .nav-links a:hover{color:var(--color-text)}
+        .nav-hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px}
+        .nav-hamburger span{display:block;width:20px;height:1.5px;background:var(--color-text);margin:5px 0;transition:all 0.3s}
+
+        section{padding:120px 80px}
+        .section-inner{max-width:1100px;margin:0 auto}
+        .section-label{font-family:var(--font-mono);font-size:11px;letter-spacing:0.25em;color:var(--color-accent);text-transform:uppercase;display:flex;align-items:center;gap:16px;margin-bottom:48px}
+        .section-label::after{content:'';height:1px;width:60px;background:var(--color-accent);opacity:0.4}
+        .section-divider{height:1px;background:linear-gradient(to right,transparent,rgba(255,255,255,0.08),transparent)}
+        h2{font-family:var(--font-display);font-weight:800;font-size:36px;letter-spacing:-0.03em;line-height:1.3;margin-bottom:20px}
+        h2 em{color:var(--color-accent);font-style:normal}
+
+        /* HERO */
+        .hero{padding:200px 80px 140px;position:relative}
+        .hero-glow{position:absolute;top:0;left:-10%;width:50%;height:100%;background:radial-gradient(ellipse at center,rgba(168,224,99,0.03) 0%,transparent 70%);pointer-events:none}
+        .hero .section-inner{position:relative}
+        .hero h1{font-family:var(--font-display);font-weight:800;font-size:clamp(36px,5vw,56px);letter-spacing:-0.03em;line-height:1.25;margin-bottom:24px;max-width:700px}
+        .hero h1 em{color:var(--color-accent);font-style:normal}
+        .hero-sub{font-size:16px;font-weight:300;color:var(--color-text-muted);max-width:520px;line-height:1.8;margin-bottom:40px}
+        .hero-actions{display:flex;gap:16px;flex-wrap:wrap}
+
+        .btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--color-accent);color:var(--color-text-inverse);font-family:var(--font-display);font-weight:700;font-size:13px;letter-spacing:0.05em;padding:14px 28px;border-radius:4px;border:none;cursor:pointer;transition:all 0.2s;text-decoration:none}
+        .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(168,224,99,0.25)}
+        .btn-ghost{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--color-text);font-family:var(--font-display);font-weight:700;font-size:13px;letter-spacing:0.05em;padding:14px 28px;border-radius:4px;border:1px solid var(--color-border);cursor:pointer;transition:all 0.2s;text-decoration:none}
+        .btn-ghost:hover{border-color:var(--color-border-hover)}
+
+        /* SERVICES */
+        .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+        .service-card{background:var(--color-bg-surface);border:1px solid var(--color-border);border-radius:16px;padding:36px 28px;transition:all 0.3s;position:relative;overflow:hidden}
+        .service-card:hover{border-color:var(--color-border-hover);transform:translateY(-4px);box-shadow:0 0 40px rgba(168,224,99,0.06)}
+        .service-num{font-family:var(--font-mono);font-size:11px;color:var(--color-sage);letter-spacing:0.1em;margin-bottom:20px}
+        .service-icon{font-size:28px;margin-bottom:20px;display:block}
+        .service-card h3{font-family:var(--font-display);font-weight:700;font-size:18px;letter-spacing:-0.01em;margin-bottom:14px}
+        .service-card p{font-size:14px;color:var(--color-text-muted);font-weight:300;line-height:1.7}
+
+        /* BLOG */
+        .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:40px}
+        .blog-card{border:1px solid var(--color-border);border-radius:12px;padding:28px 24px;transition:all 0.3s;display:flex;flex-direction:column}
+        .blog-card:hover{border-color:var(--color-border-hover)}
+        .blog-date{font-family:var(--font-mono);font-size:11px;color:var(--color-text-subtle);letter-spacing:0.1em;margin-bottom:14px}
+        .blog-card h3{font-family:var(--font-body);font-weight:500;font-size:15px;line-height:1.6;margin-bottom:16px;flex:1}
+        .blog-link{font-size:13px;color:var(--color-accent);font-weight:400;transition:opacity 0.2s}
+        .blog-link:hover{opacity:0.7}
+        .blog-more{text-align:center}
+
+        /* APP SECTION */
+        .app-outer{padding:120px 0}
+        .app-section{background:linear-gradient(135deg,var(--color-bg-surface) 0%,var(--color-bg) 100%);border-radius:24px;margin:0 80px;padding:80px;border:1px solid var(--color-border);position:relative;overflow:hidden}
+        .app-section::before{content:'';position:absolute;top:-50%;right:-20%;width:60%;height:200%;background:radial-gradient(ellipse,rgba(168,224,99,0.04) 0%,transparent 70%);pointer-events:none}
+        .app-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative}
+        .app-content .badge-inline{display:inline-flex;align-items:center;gap:8px;background:var(--color-accent-dim);border:1px solid rgba(168,224,99,0.3);color:var(--color-accent);font-family:var(--font-mono);font-size:10px;letter-spacing:0.2em;padding:6px 14px;border-radius:9999px;text-transform:uppercase;margin-bottom:24px}
+        .app-content h2{margin-bottom:16px}
+        .app-content p{color:var(--color-text-muted);margin-bottom:28px;font-weight:300}
+        .app-visual{display:flex;align-items:center;justify-content:center}
+        .app-mascot{width:260px;height:260px;position:relative}
+        .app-mascot-glow{position:absolute;width:220px;height:220px;top:50%;left:50%;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(168,224,99,0.1) 0%,transparent 70%);animation:breathe 4s ease infinite}
+        @keyframes breathe{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-50%) scale(1.1)}}
+        .app-mascot-svg{width:100%;height:100%;position:relative;z-index:2;animation:float 6s ease infinite}
+        @keyframes float{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-10px) rotate(1deg)}}
+        .app-features{display:flex;gap:24px;margin-top:8px}
+        .app-feat{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--color-text-subtle)}
+        .app-feat-dot{width:3px;height:3px;background:var(--color-sage);border-radius:50%}
+
+        /* CONTACT */
+        .contact-inner{text-align:center;max-width:600px;margin:0 auto}
+        .contact-inner .section-label{justify-content:center}
+        .contact-inner p{color:var(--color-text-muted);margin-bottom:40px;font-weight:300}
+        .contact-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+        /* FOOTER */
+        .footer{padding:48px 80px;border-top:1px solid var(--color-border);display:flex;align-items:center;justify-content:space-between}
+        .footer-left{display:flex;align-items:center;gap:24px}
+        .footer-logo{font-family:var(--font-display);font-weight:800;font-size:16px}
+        .footer-logo .via{color:var(--color-accent)}
+        .footer-copy{font-family:var(--font-mono);font-size:10px;color:var(--color-text-subtle);letter-spacing:0.1em}
+        .footer-links{display:flex;gap:24px}
+        .footer-links a{font-size:12px;color:var(--color-text-subtle);transition:color 0.2s}
+        .footer-links a:hover{color:var(--color-text-muted)}
+
+        .fade-in{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease}
+        .fade-in.visible{opacity:1;transform:translateY(0)}
+
+        @media(max-width:900px){
+            section{padding:80px 24px}
+            .hero{padding:140px 24px 100px}
+            .nav{padding:0 24px}
+            .nav-links{display:none}
+            .nav-hamburger{display:block}
+            .nav-links.open{display:flex;flex-direction:column;position:absolute;top:72px;left:0;right:0;background:rgba(13,17,23,0.95);backdrop-filter:blur(16px);padding:24px;gap:20px;border-bottom:1px solid var(--color-border)}
+            .services-grid{grid-template-columns:1fr}
+            .blog-grid{grid-template-columns:1fr}
+            .app-section{margin:0 24px;padding:48px 28px;border-radius:16px}
+            .app-inner{grid-template-columns:1fr;gap:40px}
+            .app-visual{order:-1}
+            .app-mascot{width:180px;height:180px}
+            .footer{padding:32px 24px;flex-direction:column;gap:16px;text-align:center}
+            .footer-left{flex-direction:column;gap:8px}
+            h2{font-size:28px}
+        }
+    </style>
+</head>
+<body>
+    <div class="grain"></div>
+
+    <nav class="nav">
+        <a href="/" class="nav-logo">Slo<span class="via">via</span><span class="inc">Inc.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#services">サービス</a></li>
+            <li><a href="#blog">ブログ</a></li>
+            <li><a href="#app">アプリ</a></li>
+            <li><a href="/about.html">会社概要</a></li>
+            <li><a href="/contact.html">お問い合わせ</a></li>
+        </ul>
+        <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="メニュー">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-glow"></div>
+        <div class="section-inner">
+            <div class="section-label">Recruitment × Consulting × Technology</div>
+            <h1>多様な専門性で、<br><em>あなたの課題</em>に<br>向き合う。</h1>
+            <p class="hero-sub">人材紹介・衛星データ活用コンサルティング・ビジネスアプリ開発。<br>三つの専門領域で事業をサポートします。</p>
+            <div class="hero-actions">
+                <a href="#contact" class="btn-primary">お問い合わせ</a>
+                <a href="#services" class="btn-ghost">サービスを見る →</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <section id="services">
+        <div class="section-inner">
+            <div class="section-label">Services</div>
+            <h2>三つの専門領域で<br>提供する<em>価値</em></h2>
+            <p style="color:var(--color-text-muted);margin-bottom:48px;max-width:540px">それぞれ独立した事業として、各領域の専門性を活かしたサポートを提供しています。</p>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-num">01</div>
+                    <span class="service-icon">👤</span>
+                    <h3>人材紹介</h3>
+                    <p>IT・営業・管理部門など幅広い職種を対象に、求職者一人ひとりの強みと可能性を深く理解した上で最適なキャリアへのマッチングをサポート。学歴や転職回数に捉われない、本質的な評価を大切にしています。</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-num">02</div>
+                    <span class="service-icon">🛰️</span>
+                    <h3>衛星データ活用コンサル</h3>
+                    <p>衛星データの利活用を通じた事業開発を支援。新規事業の立案から実装まで、宇宙産業の専門知識と豊富なネットワークを活かして、クライアントの事業創出をサポートします。</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-num">03</div>
+                    <span class="service-icon">📱</span>
+                    <h3>ビジネスアプリ開発</h3>
+                    <p>業務効率化・課題解決に特化したビジネス系アプリケーションを開発。現場の実務経験から生まれたアイデアをプロダクトとして形にし、近日リリース予定です。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <section id="blog">
+        <div class="section-inner">
+            <div class="section-label">Blog</div>
+            <h2>最新<em>記事</em></h2>
+            <div class="blog-grid">
+                <a href="/blog/2025/10/03/remote-jobs-demand/" class="blog-card fade-in">
+                    <div class="blog-date">2025.10.03</div>
+                    <h3>リモート需要が堅調な職種</h3>
+                    <span class="blog-link">続きを読む →</span>
+                </a>
+                <a href="/blog/2025/09/26/career-success-stories/" class="blog-card fade-in">
+                    <div class="blog-date">2025.09.26</div>
+                    <h3>学歴や転職回数の壁を乗り越えた成功事例</h3>
+                    <span class="blog-link">続きを読む →</span>
+                </a>
+                <a href="/blog/2025/09/21/remote-work-trends/" class="blog-card fade-in">
+                    <div class="blog-date">2025.09.21</div>
+                    <h3>昨今のリモートワーク動向について</h3>
+                    <span class="blog-link">続きを読む →</span>
+                </a>
+            </div>
+            <div class="blog-more"><a href="/blog/" class="btn-ghost">ブログ一覧を見る →</a></div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <div id="app" class="app-outer">
+        <div class="app-section fade-in">
+            <div class="app-inner">
+                <div class="app-content">
+                    <span class="badge-inline">Coming Soon</span>
+                    <h2>ビジネスを加速する<br><em>アプリ</em>を開発中</h2>
+                    <p>話すだけで仕事が終わる音声入力SaaS「Slovia」。<br>アプリを自動検出して、メールは丁寧に、チャットはカジュアルに。<br>現場の実務課題から着想した、新しい音声入力のかたち。</p>
+                    <a href="https://slovia.app" class="btn-primary" target="_blank">slovia.app →</a>
+                    <div class="app-features">
+                        <span class="app-feat"><span class="app-feat-dot"></span>iOS / Win / Mac</span>
+                        <span class="app-feat"><span class="app-feat-dot"></span>30日間無料</span>
+                    </div>
+                </div>
+                <div class="app-visual">
+                    <div class="app-mascot">
+                        <div class="app-mascot-glow"></div>
+                        <svg class="app-mascot-svg" viewBox="0 0 380 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="190" cy="190" r="160" fill="#1A2E1A" opacity="0.6"/>
+                            <circle cx="190" cy="190" r="140" fill="#1A2E1A" opacity="0.4"/>
+                            <ellipse cx="190" cy="210" rx="80" ry="75" fill="#2D4A2D"/>
+                            <circle cx="190" cy="145" r="65" fill="#2D4A2D"/>
+                            <ellipse cx="190" cy="150" rx="48" ry="45" fill="#3D6B45"/>
+                            <ellipse cx="172" cy="143" rx="10" ry="6" fill="#0D1117"/>
+                            <ellipse cx="172" cy="143" rx="7" ry="4" fill="#1A1A1A"/>
+                            <circle cx="174" cy="141" r="2" fill="#A8E063" opacity="0.9"/>
+                            <path d="M160 138 Q172 132 184 138 Q184 148 172 150 Q160 148 160 138Z" fill="#0D1117" opacity="0.85"/>
+                            <circle cx="174" cy="141" r="1.5" fill="#A8E063" opacity="0.7"/>
+                            <ellipse cx="208" cy="143" rx="10" ry="6" fill="#0D1117"/>
+                            <path d="M196 138 Q208 132 220 138 Q220 148 208 150 Q196 148 196 138Z" fill="#0D1117" opacity="0.85"/>
+                            <circle cx="210" cy="141" r="1.5" fill="#A8E063" opacity="0.7"/>
+                            <rect x="184" y="137" width="12" height="2.5" rx="1.25" fill="#0D1117" opacity="0.7"/>
+                            <ellipse cx="190" cy="158" rx="8" ry="5" fill="#2D4A2D"/>
+                            <ellipse cx="190" cy="157" rx="5" ry="3" fill="#1E3A28"/>
+                            <path d="M179 168 Q190 174 201 168" stroke="#1A2E1A" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                            <circle cx="132" cy="130" r="22" fill="#2D4A2D"/>
+                            <circle cx="132" cy="130" r="14" fill="#3D6B45"/>
+                            <circle cx="248" cy="130" r="22" fill="#2D4A2D"/>
+                            <circle cx="248" cy="130" r="14" fill="#3D6B45"/>
+                            <path d="M125 185 Q90 160 75 130" stroke="#2D4A2D" stroke-width="18" stroke-linecap="round" fill="none"/>
+                            <path d="M75 130 Q65 115 60 108" stroke="#2D4A2D" stroke-width="10" stroke-linecap="round" fill="none"/>
+                            <path d="M75 130 Q68 112 70 104" stroke="#2D4A2D" stroke-width="8" stroke-linecap="round" fill="none"/>
+                            <path d="M75 130 Q80 112 82 104" stroke="#2D4A2D" stroke-width="8" stroke-linecap="round" fill="none"/>
+                            <path d="M255 185 Q290 160 305 130" stroke="#2D4A2D" stroke-width="18" stroke-linecap="round" fill="none"/>
+                            <path d="M305 130 Q315 115 320 108" stroke="#2D4A2D" stroke-width="10" stroke-linecap="round" fill="none"/>
+                            <path d="M305 130 Q312 112 310 104" stroke="#2D4A2D" stroke-width="8" stroke-linecap="round" fill="none"/>
+                            <path d="M305 130 Q300 112 298 104" stroke="#2D4A2D" stroke-width="8" stroke-linecap="round" fill="none"/>
+                            <path d="M130 125 Q140 88 190 85 Q240 88 250 125" stroke="#A8E063" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.9"/>
+                            <rect x="122" y="118" width="18" height="24" rx="9" fill="#A8E063" opacity="0.9"/>
+                            <rect x="240" y="118" width="18" height="24" rx="9" fill="#A8E063" opacity="0.9"/>
+                            <g transform="translate(155, 185)" opacity="0.6">
+                                <rect x="0" y="4" width="4" height="8" rx="2" fill="#A8E063"/>
+                                <rect x="7" y="1" width="4" height="14" rx="2" fill="#A8E063"/>
+                                <rect x="14" y="5" width="4" height="6" rx="2" fill="#A8E063"/>
+                                <rect x="21" y="0" width="4" height="16" rx="2" fill="#A8E063"/>
+                                <rect x="28" y="3" width="4" height="10" rx="2" fill="#A8E063"/>
+                                <rect x="35" y="6" width="4" height="4" rx="2" fill="#A8E063"/>
+                            </g>
+                            <circle cx="155" cy="100" r="3" fill="#A8E063" opacity="0.4"/>
+                            <circle cx="230" cy="95" r="2" fill="#A8E063" opacity="0.3"/>
+                            <circle cx="145" cy="75" r="1.5" fill="#A8E063" opacity="0.2"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <section id="contact">
+        <div class="contact-inner fade-in">
+            <div class="section-label">Contact</div>
+            <h2>まずは、<em>話しましょう。</em></h2>
+            <p>転職相談・衛星データ活用・採用支援など、お気軽にご相談ください。</p>
+            <div class="contact-actions">
+                <a href="/contact.html" class="btn-primary">お問い合わせ</a>
+                <a href="/about.html" class="btn-ghost">会社概要を見る →</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-left">
+            <span class="footer-logo">Slo<span class="via">via</span></span>
+            <span class="footer-copy">© 2025 株式会社Slovia All rights reserved.</span>
+        </div>
+        <div class="footer-links">
+            <a href="#services">サービス</a>
+            <a href="#blog">ブログ</a>
+            <a href="/about.html">会社概要</a>
+            <a href="/contact.html">お問い合わせ</a>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu(){document.getElementById('navLinks').classList.toggle('open')}
+        const observer=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('visible')})},{threshold:0.1});
+        document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+        document.querySelectorAll('.nav-links a').forEach(l=>{l.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('open'))});
+    </script>
+</body>
+</html>

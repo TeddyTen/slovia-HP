@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お問い合わせ | 株式会社Slovia</title>
+    <meta name="description" content="株式会社Sloviaへのお問い合わせ。転職相談・衛星データ活用・採用支援など、お気軽にご相談ください。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Space+Mono:wght@400;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-bg: #0D1117; --color-bg-surface: #1A2E1A;
+            --color-accent: #A8E063; --color-accent-dim: rgba(168,224,99,0.15);
+            --color-sage: #4A7C59; --color-text: #F5F0E8;
+            --color-text-muted: rgba(245,240,232,0.55); --color-text-subtle: rgba(245,240,232,0.25);
+            --color-text-inverse: #0D1117; --color-border: rgba(255,255,255,0.07);
+            --color-border-hover: rgba(168,224,99,0.25); --color-border-focus: rgba(168,224,99,0.6);
+            --color-error: #E06363;
+            --font-display: 'Syne', sans-serif; --font-body: 'DM Sans', 'Noto Sans JP', sans-serif;
+            --font-mono: 'Space Mono', monospace;
+        }
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        html{scroll-behavior:smooth}
+        body{background:var(--color-bg);color:var(--color-text);font-family:var(--font-body);font-weight:300;font-size:15px;line-height:1.75;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+        a{color:inherit;text-decoration:none}
+
+        .grain{position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:0.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-repeat:repeat;background-size:256px}
+
+        .nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;height:72px;display:flex;align-items:center;justify-content:space-between;background:rgba(13,17,23,0.85);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--color-border)}
+        .nav-logo{font-family:var(--font-display);font-weight:800;font-size:20px;letter-spacing:-0.02em}
+        .nav-logo .via{color:var(--color-accent)}
+        .nav-logo .inc{color:var(--color-text-subtle);font-weight:400;font-size:11px;margin-left:8px;letter-spacing:0.05em}
+        .nav-links{display:flex;gap:32px;list-style:none}
+        .nav-links a{font-size:13px;font-weight:400;color:var(--color-text-muted);transition:color 0.2s}
+        .nav-links a:hover{color:var(--color-text)}
+        .nav-hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px}
+        .nav-hamburger span{display:block;width:20px;height:1.5px;background:var(--color-text);margin:5px 0}
+
+        .section-label{font-family:var(--font-mono);font-size:11px;letter-spacing:0.25em;color:var(--color-accent);text-transform:uppercase;display:flex;align-items:center;gap:16px;margin-bottom:48px}
+        .section-label::after{content:'';height:1px;width:60px;background:var(--color-accent);opacity:0.4}
+
+        .page-header{padding:180px 80px 80px;position:relative}
+        .page-header-glow{position:absolute;top:0;left:-10%;width:50%;height:100%;background:radial-gradient(ellipse at center,rgba(168,224,99,0.03) 0%,transparent 70%);pointer-events:none}
+        .page-inner{max-width:640px;margin:0 auto;position:relative}
+        .page-header h1{font-family:var(--font-display);font-weight:800;font-size:clamp(32px,4vw,44px);letter-spacing:-0.03em;line-height:1.3}
+        .page-header h1 em{color:var(--color-accent);font-style:normal}
+        .page-header p{color:var(--color-text-muted);margin-top:16px;font-weight:300}
+
+        .form-section{padding:0 80px 120px}
+        .form-inner{max-width:640px;margin:0 auto}
+
+        .form-group{margin-bottom:28px}
+        .form-group label{display:block;font-family:var(--font-mono);font-size:11px;letter-spacing:0.15em;color:var(--color-text-subtle);text-transform:uppercase;margin-bottom:10px}
+        .form-group label .required{color:var(--color-accent);margin-left:4px}
+        .form-group input,
+        .form-group select,
+        .form-group textarea{
+            width:100%;background:rgba(255,255,255,0.04);border:1px solid var(--color-border);
+            border-radius:4px;color:var(--color-text);font-family:var(--font-body);
+            font-size:14px;padding:14px 16px;outline:none;transition:border-color 0.2s;
+            font-weight:300;
+        }
+        .form-group textarea{resize:vertical;min-height:160px;line-height:1.7}
+        .form-group select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%23F5F0E8' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;padding-right:40px}
+        .form-group select option{background:var(--color-bg);color:var(--color-text)}
+        .form-group input::placeholder,
+        .form-group textarea::placeholder{color:var(--color-text-subtle)}
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus{border-color:var(--color-border-focus);box-shadow:0 0 0 3px rgba(168,224,99,0.1)}
+
+        .form-submit{
+            background:var(--color-accent);color:var(--color-text-inverse);
+            font-family:var(--font-display);font-weight:700;font-size:14px;
+            letter-spacing:0.05em;padding:16px 40px;border-radius:4px;
+            border:none;cursor:pointer;transition:all 0.2s;
+        }
+        .form-submit:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(168,224,99,0.25)}
+        .form-submit:active{transform:translateY(0)}
+        .form-submit:disabled{opacity:0.5;cursor:not-allowed;transform:none;box-shadow:none}
+
+        .form-msg{font-size:14px;margin-top:20px;min-height:24px}
+        .form-msg.success{color:var(--color-accent)}
+        .form-msg.error{color:var(--color-error)}
+
+        .footer{padding:48px 80px;border-top:1px solid var(--color-border);display:flex;align-items:center;justify-content:space-between}
+        .footer-left{display:flex;align-items:center;gap:24px}
+        .footer-logo{font-family:var(--font-display);font-weight:800;font-size:16px}
+        .footer-logo .via{color:var(--color-accent)}
+        .footer-copy{font-family:var(--font-mono);font-size:10px;color:var(--color-text-subtle);letter-spacing:0.1em}
+        .footer-links{display:flex;gap:24px}
+        .footer-links a{font-size:12px;color:var(--color-text-subtle);transition:color 0.2s}
+        .footer-links a:hover{color:var(--color-text-muted)}
+
+        @media(max-width:900px){
+            .nav{padding:0 24px}
+            .nav-links{display:none}
+            .nav-hamburger{display:block}
+            .nav-links.open{display:flex;flex-direction:column;position:absolute;top:72px;left:0;right:0;background:rgba(13,17,23,0.95);backdrop-filter:blur(16px);padding:24px;gap:20px;border-bottom:1px solid var(--color-border)}
+            .page-header{padding:140px 24px 60px}
+            .form-section{padding:0 24px 80px}
+            .footer{padding:32px 24px;flex-direction:column;gap:16px;text-align:center}
+            .footer-left{flex-direction:column;gap:8px}
+        }
+    </style>
+</head>
+<body>
+    <div class="grain"></div>
+
+    <nav class="nav">
+        <a href="/" class="nav-logo">Slo<span class="via">via</span><span class="inc">Inc.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/#services">サービス</a></li>
+            <li><a href="/#blog">ブログ</a></li>
+            <li><a href="/#app">アプリ</a></li>
+            <li><a href="/about.html">会社概要</a></li>
+            <li><a href="/contact.html">お問い合わせ</a></li>
+        </ul>
+        <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="メニュー">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <header class="page-header">
+        <div class="page-header-glow"></div>
+        <div class="page-inner">
+            <div class="section-label">Contact</div>
+            <h1><em>お問い合わせ</em></h1>
+            <p>転職相談・衛星データ活用・採用支援・Sloviaに関するご質問など、お気軽にご連絡ください。</p>
+        </div>
+    </header>
+
+    <div class="form-section">
+        <div class="form-inner">
+            <div class="form-group">
+                <label>お名前<span class="required">*</span></label>
+                <input type="text" id="nameInput" placeholder="山田 太郎">
+            </div>
+            <div class="form-group">
+                <label>メールアドレス<span class="required">*</span></label>
+                <input type="email" id="emailInput" placeholder="your@email.com">
+            </div>
+            <div class="form-group">
+                <label>カテゴリ</label>
+                <select id="categorySelect">
+                    <option value="">選択してください</option>
+                    <option value="recruit">転職・採用のご相談</option>
+                    <option value="satellite">衛星データ活用のご相談</option>
+                    <option value="slovia">Sloviaについて</option>
+                    <option value="other">その他</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>お問い合わせ内容<span class="required">*</span></label>
+                <textarea id="messageInput" placeholder="ご相談内容をご記入ください"></textarea>
+            </div>
+            <button class="form-submit" id="submitBtn" onclick="handleSubmit()">送信する</button>
+            <p class="form-msg" id="formMsg"></p>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-left">
+            <span class="footer-logo">Slo<span class="via">via</span></span>
+            <span class="footer-copy">© 2025 株式会社Slovia All rights reserved.</span>
+        </div>
+        <div class="footer-links">
+            <a href="/#services">サービス</a>
+            <a href="/#blog">ブログ</a>
+            <a href="/about.html">会社概要</a>
+            <a href="/contact.html">お問い合わせ</a>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu(){document.getElementById('navLinks').classList.toggle('open')}
+        document.querySelectorAll('.nav-links a').forEach(l=>{l.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('open'))});
+
+        function handleSubmit(){
+            const name=document.getElementById('nameInput').value.trim();
+            const email=document.getElementById('emailInput').value.trim();
+            const message=document.getElementById('messageInput').value.trim();
+            const msg=document.getElementById('formMsg');
+            const btn=document.getElementById('submitBtn');
+
+            if(!name||!email||!message){
+                msg.textContent='必須項目を入力してください';
+                msg.className='form-msg error';
+                return;
+            }
+            if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+                msg.textContent='メールアドレスを正しく入力してください';
+                msg.className='form-msg error';
+                return;
+            }
+
+            btn.disabled=true;
+            btn.textContent='送信中...';
+
+            // TODO: バックエンド接続（Supabase / Formspree / etc.）
+            setTimeout(()=>{
+                msg.textContent='お問い合わせありがとうございます。2営業日以内にご返信いたします。';
+                msg.className='form-msg success';
+                btn.textContent='✓ 送信済み';
+                document.getElementById('nameInput').value='';
+                document.getElementById('emailInput').value='';
+                document.getElementById('categorySelect').value='';
+                document.getElementById('messageInput').value='';
+            },800);
+        }
+    </script>
+</body>
+</html>
