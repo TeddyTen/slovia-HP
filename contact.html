@@ -132,32 +132,34 @@
     </header>
 
     <div class="form-section">
-        <div class="form-inner">
+        <form class="form-inner" action="https://formspree.io/f/xojnlgnn" method="POST">
+            <input type="hidden" name="_subject" value="【slovia.jp】お問い合わせ">
+            <input type="hidden" name="_next" value="https://slovia.jp/contact.html?sent=1">
             <div class="form-group">
                 <label>お名前<span class="required">*</span></label>
-                <input type="text" id="nameInput" placeholder="山田 太郎">
+                <input type="text" name="name" required placeholder="山田 太郎">
             </div>
             <div class="form-group">
                 <label>メールアドレス<span class="required">*</span></label>
-                <input type="email" id="emailInput" placeholder="your@email.com">
+                <input type="email" name="email" required placeholder="your@email.com">
             </div>
             <div class="form-group">
                 <label>カテゴリ</label>
-                <select id="categorySelect">
+                <select name="category">
                     <option value="">選択してください</option>
-                    <option value="recruit">転職・採用のご相談</option>
-                    <option value="satellite">衛星データ活用のご相談</option>
-                    <option value="slovia">Sloviaについて</option>
-                    <option value="other">その他</option>
+                    <option value="転職・採用のご相談">転職・採用のご相談</option>
+                    <option value="衛星データ活用のご相談">衛星データ活用のご相談</option>
+                    <option value="Sloviaについて">Sloviaについて</option>
+                    <option value="その他">その他</option>
                 </select>
             </div>
             <div class="form-group">
                 <label>お問い合わせ内容<span class="required">*</span></label>
-                <textarea id="messageInput" placeholder="ご相談内容をご記入ください"></textarea>
+                <textarea name="message" required placeholder="ご相談内容をご記入ください"></textarea>
             </div>
-            <button class="form-submit" id="submitBtn" onclick="handleSubmit()">送信する</button>
+            <button type="submit" class="form-submit">送信する</button>
             <p class="form-msg" id="formMsg"></p>
-        </div>
+        </form>
     </div>
 
     <footer class="footer">
@@ -177,37 +179,14 @@
         function toggleMenu(){document.getElementById('navLinks').classList.toggle('open')}
         document.querySelectorAll('.nav-links a').forEach(l=>{l.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('open'))});
 
-        function handleSubmit(){
-            const name=document.getElementById('nameInput').value.trim();
-            const email=document.getElementById('emailInput').value.trim();
-            const message=document.getElementById('messageInput').value.trim();
+        function handleSubmit(){}
+        // 送信完了メッセージ（Formspree リダイレクト後）
+        if(window.location.search.includes('sent=1')){
             const msg=document.getElementById('formMsg');
-            const btn=document.getElementById('submitBtn');
-
-            if(!name||!email||!message){
-                msg.textContent='必須項目を入力してください';
-                msg.className='form-msg error';
-                return;
-            }
-            if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
-                msg.textContent='メールアドレスを正しく入力してください';
-                msg.className='form-msg error';
-                return;
-            }
-
-            btn.disabled=true;
-            btn.textContent='送信中...';
-
-            // TODO: バックエンド接続（Supabase / Formspree / etc.）
-            setTimeout(()=>{
+            if(msg){
                 msg.textContent='お問い合わせありがとうございます。2営業日以内にご返信いたします。';
                 msg.className='form-msg success';
-                btn.textContent='✓ 送信済み';
-                document.getElementById('nameInput').value='';
-                document.getElementById('emailInput').value='';
-                document.getElementById('categorySelect').value='';
-                document.getElementById('messageInput').value='';
-            },800);
+            }
         }
     </script>
 </body>
