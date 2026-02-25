@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>昨今のリモートワーク動向について — Slovia Blog</title>
+    <meta name="description" content="日本におけるリモートワークの現状と今後の展望。企業導入率、職種別の実態、求職者へのアドバイスをまとめました。">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Space+Mono:wght@400;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-bg: #0D1117; --color-bg-surface: #1A2E1A; --color-bg-elevated: #2D4A2D;
+            --color-accent: #A8E063; --color-accent-dim: rgba(168,224,99,0.15);
+            --color-sage: #4A7C59; --color-gold: #C9A84C; --color-text: #F5F0E8;
+            --color-text-muted: rgba(245,240,232,0.55); --color-text-subtle: rgba(245,240,232,0.25);
+            --color-text-inverse: #0D1117; --color-border: rgba(255,255,255,0.07);
+            --color-border-hover: rgba(168,224,99,0.25);
+            --font-display: 'Syne', sans-serif; --font-body: 'DM Sans', 'Noto Sans JP', sans-serif;
+            --font-mono: 'Space Mono', monospace;
+        }
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        html{scroll-behavior:smooth}
+        body{background:var(--color-bg);color:var(--color-text);font-family:var(--font-body);font-weight:300;font-size:15px;line-height:1.75;-webkit-font-smoothing:antialiased}
+        a{color:inherit;text-decoration:none}
+
+        .grain{position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:0.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-repeat:repeat;background-size:256px}
+
+        .nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;height:72px;display:flex;align-items:center;justify-content:space-between;background:rgba(13,17,23,0.85);backdrop-filter:blur(16px);border-bottom:1px solid var(--color-border)}
+        .nav-logo{font-family:var(--font-display);font-weight:800;font-size:20px;letter-spacing:-0.02em}
+        .nav-logo .via{color:var(--color-accent)}
+        .nav-logo .inc{color:var(--color-text-subtle);font-weight:400;font-size:11px;margin-left:8px;letter-spacing:0.05em}
+        .nav-links{display:flex;gap:32px;list-style:none}
+        .nav-links a{font-size:13px;color:var(--color-text-muted);transition:color 0.2s}
+        .nav-links a:hover{color:var(--color-text)}
+
+        .post-hero{padding:160px 80px 80px;position:relative;overflow:hidden}
+        .post-hero-bg{position:absolute;inset:0;overflow:hidden}
+        .post-hero-bg svg{position:absolute;width:100%;height:100%;opacity:0.15}
+        .post-hero-inner{position:relative;max-width:760px;margin:0 auto}
+        .post-meta{font-family:var(--font-mono);font-size:11px;letter-spacing:0.2em;color:var(--color-accent);text-transform:uppercase;margin-bottom:24px;display:flex;align-items:center;gap:12px}
+        .post-meta::after{content:'';height:1px;width:40px;background:var(--color-accent);opacity:0.4}
+        .post-hero h1{font-family:var(--font-display);font-weight:800;font-size:clamp(28px,4vw,42px);letter-spacing:-0.02em;line-height:1.3;margin-bottom:16px}
+        .post-hero h1 em{color:var(--color-accent);font-style:normal}
+        .post-excerpt{color:var(--color-text-muted);font-size:16px;max-width:600px}
+
+        .icon-strip{display:flex;gap:16px;margin-top:32px}
+        .icon-chip{display:flex;align-items:center;gap:8px;background:var(--color-accent-dim);border:1px solid rgba(168,224,99,0.2);border-radius:999px;padding:6px 16px;font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;color:var(--color-accent)}
+
+        .section-divider{height:1px;background:linear-gradient(to right,transparent,rgba(255,255,255,0.08),transparent)}
+
+        .post-body{max-width:700px;margin:0 auto;padding:80px 24px 120px}
+        .post-body p{margin-bottom:24px;color:var(--color-text-muted);line-height:1.9}
+        .post-body p strong{color:var(--color-text);font-weight:500}
+        .post-body h2{font-family:var(--font-display);font-weight:700;font-size:22px;color:var(--color-text);margin:48px 0 20px;padding-left:16px;border-left:3px solid var(--color-accent)}
+        .post-body h3{font-size:17px;font-weight:500;color:var(--color-text);margin:32px 0 12px}
+
+        .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:32px 0}
+        .stat-card{background:var(--color-bg-surface);border:1px solid var(--color-border);border-radius:12px;padding:24px;text-align:center}
+        .stat-number{font-family:var(--font-display);font-weight:800;font-size:32px;color:var(--color-accent);letter-spacing:-0.02em}
+        .stat-label{font-size:12px;color:var(--color-text-subtle);margin-top:4px}
+
+        .highlight-box{background:var(--color-bg-surface);border-left:3px solid var(--color-accent);border-radius:0 8px 8px 0;padding:24px 28px;margin:32px 0;color:var(--color-text-muted);line-height:1.8}
+        .highlight-box strong{color:var(--color-text)}
+
+        .cta-section{text-align:center;padding:60px 24px;border-top:1px solid var(--color-border)}
+        .cta-section p{color:var(--color-text-muted);font-size:14px;margin-bottom:20px}
+        .cta-btn{display:inline-block;background:var(--color-accent);color:var(--color-text-inverse);font-family:var(--font-display);font-weight:700;font-size:13px;letter-spacing:0.05em;padding:14px 32px;border-radius:4px;transition:all 0.2s}
+        .cta-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(168,224,99,0.25)}
+
+        .back-link{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--color-text-muted);margin-bottom:40px;transition:color 0.2s}
+        .back-link:hover{color:var(--color-accent)}
+
+        .footer{padding:48px 80px;border-top:1px solid var(--color-border);display:flex;justify-content:space-between;align-items:center}
+        .footer-logo{font-family:var(--font-display);font-weight:800;font-size:16px}
+        .footer-logo .via{color:var(--color-accent)}
+        .footer-copy{font-family:var(--font-mono);font-size:10px;color:var(--color-text-subtle)}
+
+        @media(max-width:768px){
+            .nav{padding:0 24px}
+            .nav-links{display:none}
+            .post-hero{padding:120px 24px 60px}
+            .stat-row{grid-template-columns:1fr}
+            .icon-strip{flex-wrap:wrap}
+            .footer{padding:32px 24px;flex-direction:column;gap:12px}
+        }
+    </style>
+</head>
+<body>
+    <div class="grain"></div>
+
+    <nav class="nav">
+        <a href="/" class="nav-logo">Slo<span class="via">via</span><span class="inc">Inc.</span></a>
+        <ul class="nav-links">
+            <li><a href="/#services">サービス</a></li>
+            <li><a href="/#blog">ブログ</a></li>
+            <li><a href="/about.html">会社概要</a></li>
+            <li><a href="/contact.html">お問い合わせ</a></li>
+        </ul>
+    </nav>
+
+    <div class="post-hero">
+        <div class="post-hero-bg">
+            <svg viewBox="0 0 1200 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="200" cy="250" r="180" stroke="#A8E063" stroke-width="0.5" opacity="0.3"/>
+                <circle cx="200" cy="250" r="120" stroke="#A8E063" stroke-width="0.5" opacity="0.2"/>
+                <circle cx="900" cy="200" r="250" stroke="#4A7C59" stroke-width="0.5" opacity="0.2"/>
+                <line x1="0" y1="350" x2="1200" y2="350" stroke="#A8E063" stroke-width="0.3" opacity="0.1"/>
+                <rect x="400" y="100" width="300" height="200" rx="8" stroke="#A8E063" stroke-width="0.5" opacity="0.1"/>
+                <circle cx="550" cy="200" r="6" fill="#A8E063" opacity="0.15"/>
+                <circle cx="450" cy="160" r="3" fill="#A8E063" opacity="0.1"/>
+                <circle cx="650" cy="240" r="4" fill="#A8E063" opacity="0.1"/>
+                <path d="M100 400 Q300 300 500 350 Q700 400 900 320 Q1000 280 1200 300" stroke="#A8E063" stroke-width="0.5" fill="none" opacity="0.15"/>
+            </svg>
+        </div>
+        <div class="post-hero-inner">
+            <div class="post-meta">2025.09.21 — Blog</div>
+            <h1>昨今の<em>リモートワーク</em>動向について</h1>
+            <p class="post-excerpt">企業導入率50%時代のリモートワーク。経営層と従業員のギャップ、そして求職者が知っておくべきこと。</p>
+            <div class="icon-strip">
+                <span class="icon-chip">📊 Market Data</span>
+                <span class="icon-chip">🏠 Remote Work</span>
+                <span class="icon-chip">💼 Career</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <article class="post-body">
+        <a href="/#blog" class="back-link">← ブログ一覧に戻る</a>
+
+        <p>皆さん、初めまして。株式会社SloviaのCEO屋野と申します。本日よりブログを開始します。気になることがあれば、Xや問い合わせフォームでお気軽にご連絡ください。</p>
+
+        <p>第一回目の投稿として、「日本における昨今のリモートワーク動向について」を複数回に分けて書きたいと思います。</p>
+
+        <p>現在皆さんの身近になっているリモートワークですが、昨今のニュースでは、Amazon社やAccenture社がオフィス回帰（週5日）だったり、直近ですとMicrosoft社もオフィスに徐々に回帰（週3日）とYahooニュースの一面に取り上げられる内容になっています。実際、直近5年間で我々の働き方にどのような変化があったかを以下にまとめてみました。</p>
+
+        <div class="stat-row">
+            <div class="stat-card">
+                <div class="stat-number">50%</div>
+                <div class="stat-label">企業導入率（日本全体）</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">2x</div>
+                <div class="stat-label">2020年の導入企業増加率</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">95%+</div>
+                <div class="stat-label">継続希望の従業員割合</div>
+            </div>
+        </div>
+
+        <h2>コロナ禍からハイブリッドへ</h2>
+
+        <p>まず、皆さんもご存知の新型コロナにより、一気に多くの企業がテレワーク推奨となり、打ち合わせはZoomやMicrosoft Teamsが主流となりました。そして、2020年にテレワーク導入企業は前年の<strong>2倍以上</strong>に達し、特に大企業で在宅勤務が常態化しました。（総務省「令和2年通信利用動向調査」より）</p>
+
+        <p>現在までに、テレワークの企業導入率は日本全体の50%まで伸びてきているものの、多くが大企業であり、中小企業では現在も導入すらしていない企業が多い状況です。また、企業定着率になると、多くの企業の実態は、出社と在宅を組み合わせた<strong>ハイブリッド勤務が一般化</strong>しています。</p>
+
+        <p>今後の政策としては、政府は2025年度までに全国で導入企業割合55%を目指しており、今後もテレワークを持続・拡大させる方針となっています。2025年4月には育児・介護休業法の改正で、育児や介護中の社員にテレワークなど柔軟勤務の選択肢を与え、企業のテレワークの取り組みという形にもなっています。</p>
+
+        <h2>業種別の実態</h2>
+
+        <p>業種で見てみますと、例えば<strong>情報通信業では7割近くの従業者</strong>がテレワークを活用しているようです。一方、製造業の現場作業や医療・対面サービス業などテレワークが難しい領域では、導入率は限定的なまま（1割程度）になっています。</p>
+
+        <div class="highlight-box">
+            個人的に面白い傾向としては、多くの企業の<strong>経営陣が完全リモートよりも対面と遠隔のバランスを取った勤務形態を希望</strong>している一方、<strong>従業員でテレワーク経験者のうち95%以上</strong>が今後も同等またはそれ以上にテレワークを続けたいと回答しています。
+        </div>
+
+        <h2>求人市場の実態</h2>
+
+        <p>この企業と求職者の需要のギャップは、求人サイトの求人数でも顕著に感じられます。エージェント向け求人サイトで、キーワード「フルリモート/完全リモート」で探すと、<strong>9万件中1,300件</strong>、「リモート」では1.5万件が見つかりました。後者はハイブリッドや条件付きリモートワークも含まれるため、出社0ベースの求人は数少ないと言えます。</p>
+
+        <h2>求職者へのアドバイス</h2>
+
+        <p>直近、候補者様から、リモートワークが終わったことによる転職相談が増えています。この時、お伝えしているのは2点です。</p>
+
+        <p><strong>1つ目は、転職希望先の企業が「なぜリモートワークを取り入れているのか」を調査すること。</strong>スタートアップで言えば、RevComm社（AI IP電話サービス提供事業者）のような海外や地方人材など、遠隔でメンバーが活躍し組織を押し上げてきたという強い価値観が存在すると、成功体験からリモートワークが続きそうと判断しやすいです。消極的にリモートワークを採用している企業は、入社してからリモートが終わったというようなこともあるので注意が必要です。</p>
+
+        <p><strong>2つ目は、「なぜリモートワークをしたいのか」を明確にすること。</strong>介護や遠隔地に住んでいるなどであれば優先事項になりますが、候補者様が実現したいキャリアがある中で、リモートワークに重点を置くことが自己実現の阻害になっている場合は、優先度を下げる提案をします。</p>
+
+        <p>例えば、営業職を希望する場合、インサイドセールス職では多数のリモートワーク（フルリモート含む）求人がありますが、内勤・外勤営業になると、極端に減ります。一般的に、インサイドセールスのキャリアアップ先が具体的な提案をする内勤・外勤営業になります。インサイドセールスとしての給料が理論的な最大値に達した際、次の年収帯に行くためにリモートワークを諦めた方が合理的な判断となる場合があります。実態と理想を踏まえて、候補者様が本当は何をしたいのかを一緒に深掘りしています。</p>
+
+        <p>次回は、より求人を深掘りし、営業職や技術職の中でも、「どのような職種でリモートワークを積極的に推進しているか」や「ハイブリットワークの実態」について記載しようと思っています。この記事を読んで、もし共感いただける方や、一度自分のキャリアを相談してみたいという方がいましたら、是非お気軽にご連絡よろしくお願いいたします。</p>
+    </article>
+
+    <div class="cta-section">
+        <p>キャリアのご相談、お気軽にどうぞ。</p>
+        <a href="/contact.html" class="cta-btn">転職相談を申し込む →</a>
+    </div>
+
+    <footer class="footer">
+        <div>
+            <span class="footer-logo">Slo<span class="via">via</span></span>
+            <span class="footer-copy" style="margin-left:16px">© 2026 株式会社Slovia</span>
+        </div>
+    </footer>
+</body>
+</html>

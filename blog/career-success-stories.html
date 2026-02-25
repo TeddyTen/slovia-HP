@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学歴や転職回数の壁を乗り越えた成功事例 — Slovia Blog</title>
+    <meta name="description" content="大学中退、転職6回。それでも年収700万の転職に成功したSさんの事例を紹介します。">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Space+Mono:wght@400;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-bg: #0D1117; --color-bg-surface: #1A2E1A; --color-bg-elevated: #2D4A2D;
+            --color-accent: #A8E063; --color-accent-dim: rgba(168,224,99,0.15);
+            --color-sage: #4A7C59; --color-gold: #C9A84C; --color-text: #F5F0E8;
+            --color-text-muted: rgba(245,240,232,0.55); --color-text-subtle: rgba(245,240,232,0.25);
+            --color-text-inverse: #0D1117; --color-border: rgba(255,255,255,0.07);
+            --color-border-hover: rgba(168,224,99,0.25);
+            --font-display: 'Syne', sans-serif; --font-body: 'DM Sans', 'Noto Sans JP', sans-serif;
+            --font-mono: 'Space Mono', monospace;
+        }
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        html{scroll-behavior:smooth}
+        body{background:var(--color-bg);color:var(--color-text);font-family:var(--font-body);font-weight:300;font-size:15px;line-height:1.75;-webkit-font-smoothing:antialiased}
+        a{color:inherit;text-decoration:none}
+        .grain{position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:0.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-repeat:repeat;background-size:256px}
+        .nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;height:72px;display:flex;align-items:center;justify-content:space-between;background:rgba(13,17,23,0.85);backdrop-filter:blur(16px);border-bottom:1px solid var(--color-border)}
+        .nav-logo{font-family:var(--font-display);font-weight:800;font-size:20px;letter-spacing:-0.02em}
+        .nav-logo .via{color:var(--color-accent)}
+        .nav-logo .inc{color:var(--color-text-subtle);font-weight:400;font-size:11px;margin-left:8px;letter-spacing:0.05em}
+        .nav-links{display:flex;gap:32px;list-style:none}
+        .nav-links a{font-size:13px;color:var(--color-text-muted);transition:color 0.2s}
+        .nav-links a:hover{color:var(--color-text)}
+
+        .post-hero{padding:160px 80px 80px;position:relative;overflow:hidden}
+        .post-hero-bg{position:absolute;inset:0;overflow:hidden}
+        .post-hero-bg svg{position:absolute;width:100%;height:100%;opacity:0.15}
+        .post-hero-inner{position:relative;max-width:760px;margin:0 auto}
+        .post-meta{font-family:var(--font-mono);font-size:11px;letter-spacing:0.2em;color:var(--color-accent);text-transform:uppercase;margin-bottom:24px;display:flex;align-items:center;gap:12px}
+        .post-meta::after{content:'';height:1px;width:40px;background:var(--color-accent);opacity:0.4}
+        .post-hero h1{font-family:var(--font-display);font-weight:800;font-size:clamp(28px,4vw,42px);letter-spacing:-0.02em;line-height:1.3;margin-bottom:16px}
+        .post-hero h1 em{color:var(--color-accent);font-style:normal}
+        .post-excerpt{color:var(--color-text-muted);font-size:16px;max-width:600px}
+
+        .icon-strip{display:flex;gap:16px;margin-top:32px}
+        .icon-chip{display:flex;align-items:center;gap:8px;background:var(--color-accent-dim);border:1px solid rgba(168,224,99,0.2);border-radius:999px;padding:6px 16px;font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;color:var(--color-accent)}
+
+        .section-divider{height:1px;background:linear-gradient(to right,transparent,rgba(255,255,255,0.08),transparent)}
+
+        .post-body{max-width:700px;margin:0 auto;padding:80px 24px 120px}
+        .post-body p{margin-bottom:24px;color:var(--color-text-muted);line-height:1.9}
+        .post-body p strong{color:var(--color-text);font-weight:500}
+        .post-body h2{font-family:var(--font-display);font-weight:700;font-size:22px;color:var(--color-text);margin:48px 0 20px;padding-left:16px;border-left:3px solid var(--color-accent)}
+        .post-body hr{border:none;height:1px;background:linear-gradient(to right,transparent,rgba(255,255,255,0.08),transparent);margin:48px 0}
+
+        .profile-card{background:var(--color-bg-surface);border:1px solid var(--color-border);border-radius:12px;padding:32px;margin:32px 0}
+        .profile-card .label{font-family:var(--font-mono);font-size:10px;letter-spacing:0.2em;color:var(--color-accent);text-transform:uppercase;margin-bottom:16px}
+        .profile-row{display:flex;gap:24px;flex-wrap:wrap}
+        .profile-item{flex:1;min-width:140px}
+        .profile-item .key{font-size:12px;color:var(--color-text-subtle);margin-bottom:4px}
+        .profile-item .val{font-size:15px;color:var(--color-text);font-weight:500}
+        .profile-item .val em{color:var(--color-accent);font-style:normal}
+        .salary-change{font-family:var(--font-display);font-weight:800;font-size:28px;color:var(--color-accent);margin-top:16px}
+
+        .quote-block{background:var(--color-bg-surface);border-left:3px solid var(--color-sage);border-radius:0 8px 8px 0;padding:24px 28px;margin:24px 0;color:var(--color-text-muted);line-height:1.9;font-size:14px}
+
+        .cta-section{text-align:center;padding:60px 24px;border-top:1px solid var(--color-border)}
+        .cta-section p{color:var(--color-text-muted);font-size:14px;margin-bottom:20px}
+        .cta-btn{display:inline-block;background:var(--color-accent);color:var(--color-text-inverse);font-family:var(--font-display);font-weight:700;font-size:13px;letter-spacing:0.05em;padding:14px 32px;border-radius:4px;transition:all 0.2s}
+        .cta-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(168,224,99,0.25)}
+        .back-link{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--color-text-muted);margin-bottom:40px;transition:color 0.2s}
+        .back-link:hover{color:var(--color-accent)}
+        .footer{padding:48px 80px;border-top:1px solid var(--color-border);display:flex;justify-content:space-between;align-items:center}
+        .footer-logo{font-family:var(--font-display);font-weight:800;font-size:16px}
+        .footer-logo .via{color:var(--color-accent)}
+        .footer-copy{font-family:var(--font-mono);font-size:10px;color:var(--color-text-subtle)}
+        @media(max-width:768px){
+            .nav{padding:0 24px}.nav-links{display:none}
+            .post-hero{padding:120px 24px 60px}
+            .profile-row{flex-direction:column;gap:12px}
+            .icon-strip{flex-wrap:wrap}
+            .footer{padding:32px 24px;flex-direction:column;gap:12px}
+        }
+    </style>
+</head>
+<body>
+    <div class="grain"></div>
+    <nav class="nav">
+        <a href="/" class="nav-logo">Slo<span class="via">via</span><span class="inc">Inc.</span></a>
+        <ul class="nav-links">
+            <li><a href="/#services">サービス</a></li>
+            <li><a href="/#blog">ブログ</a></li>
+            <li><a href="/about.html">会社概要</a></li>
+            <li><a href="/contact.html">お問い合わせ</a></li>
+        </ul>
+    </nav>
+
+    <div class="post-hero">
+        <div class="post-hero-bg">
+            <svg viewBox="0 0 1200 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M100 400 L300 300 L500 350 L700 200 L900 250 L1100 150" stroke="#A8E063" stroke-width="2" opacity="0.15" fill="none"/>
+                <path d="M100 420 L300 380 L500 390 L700 360 L900 370 L1100 340" stroke="#4A7C59" stroke-width="1" opacity="0.1" fill="none" stroke-dasharray="4 4"/>
+                <circle cx="700" cy="200" r="8" fill="#A8E063" opacity="0.2"/>
+                <circle cx="700" cy="200" r="16" stroke="#A8E063" stroke-width="0.5" opacity="0.15" fill="none"/>
+                <circle cx="1100" cy="150" r="8" fill="#A8E063" opacity="0.3"/>
+                <circle cx="1100" cy="150" r="20" stroke="#A8E063" stroke-width="0.5" opacity="0.15" fill="none"/>
+                <rect x="150" y="100" width="200" height="120" rx="8" stroke="#A8E063" stroke-width="0.3" opacity="0.1"/>
+                <text x="250" y="165" font-family="Space Mono" font-size="32" fill="#A8E063" opacity="0.08" text-anchor="middle">+50万</text>
+            </svg>
+        </div>
+        <div class="post-hero-inner">
+            <div class="post-meta">2025.09.26 — Case Study</div>
+            <h1>学歴や転職回数の壁を<br><em>乗り越えた</em>成功事例</h1>
+            <p class="post-excerpt">大学中退、転職6回。それでも情シス・セキュリティのプロとして年収700万の転職を実現したSさんのストーリー。</p>
+            <div class="icon-strip">
+                <span class="icon-chip">🔒 Security</span>
+                <span class="icon-chip">📈 Year Up</span>
+                <span class="icon-chip">🎯 Career Change</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <article class="post-body">
+        <a href="/#blog" class="back-link">← ブログ一覧に戻る</a>
+
+        <div class="profile-card">
+            <div class="label">Candidate Profile</div>
+            <div class="profile-row">
+                <div class="profile-item"><div class="key">職種</div><div class="val">情報システム / セキュリティ</div></div>
+                <div class="profile-item"><div class="key">転職先</div><div class="val">AI×SaaS 急成長企業</div></div>
+                <div class="profile-item"><div class="key">年収</div><div class="val">650万 → <em>700万円</em></div></div>
+            </div>
+            <div class="salary-change">+50万 + ボーナス</div>
+        </div>
+
+        <h2>転職背景</h2>
+
+        <p>Sさんの歩みは、一直線ではありませんでした。<strong>大学中退</strong>。最初の会社では給与未払いが続き離職、次の会社では配属ミスマッチに悩み、その次では待遇が将来設計に見合わないという現実に直面しました。回数だけ見れば「うろうろ」しているように映るかもしれません。ただ、その都度、次に活かせるものを拾ってきました。</p>
+
+        <p>特に花開いたのが4社目の会社。大学で学んでいたシステム開発技術、独学で続けていたセキュリティ周りの知識、過去の会社でのちょっとした業務経験を活かして、<strong>情シス不在の組織で情報セキュリティ部門を立ち上げ</strong>、売上数億〜数百億になるまでの急成長フェーズを支えました。その次の会社でも、SaaS製品のセキュリティ設計→導入→運用→監査対応を一気通貫でコンサルを行っていました。</p>
+
+        <p>残念ながら、事業体制の変化で、会社自体がそのような案件に関わるケースが減るため、セキュリティのプロを目指しているご本人としては転職を検討する結論になりました。</p>
+
+        <h2>Sさんの転職課題</h2>
+
+        <p><strong>求人の少なさ：</strong>地方から働ける専任セキュリティ職は母数が少なかった。<br>
+        <strong>学歴・転職回数の壁：</strong>大学中退と転職回数の多さで、書類選考の第一印象は不利だった。<br>
+        <strong>アピールの難しさ：</strong>実務には自信がある一方で、経験年数的には短く、「実績の伝え方」で困っていた。</p>
+
+        <hr>
+
+        <h2>Sさんに転職活動について聞いてみました</h2>
+
+        <p><strong>初回面談はどうでしたか？</strong></p>
+
+        <div class="quote-block">
+            転職市場の現実として、学歴もですが、30代半ば、6回目の転職ということでハードルがあると最初にきっぱり説明を受けました。すぐに求人紹介してもらえるかと思っていましたが、初回面談では自分の過去の棚卸しに集中しました。正直、面倒なくらい深掘りされました（笑）。ただ、あとで振り返ったときに、いろいろな求人を紹介してもらいましたが、全ての求人において「自分のことを理解してくれてるなぁ」という感じがあって好感が持てました。
+        </div>
+
+        <p><strong>担当者と話して役にたったことは何ですか？</strong></p>
+
+        <div class="quote-block">
+            一つは職務経歴書の作成部分です。屋野さんから、かなり細かく指摘を受けました(笑)。正直、「世の中の人ってここまで具体的に書くのか」と驚きましたが、助言に沿ってブラッシュアップすると、伝わり方が目に見えて変わりました。エージェントさんは推薦状も書いてくれるのですが、屋野さんの推薦状も私の経歴や実績をかなり細かく分析していたし、応募する求人毎に書き直してくれていた点は丁寧さを感じました。
+        </div>
+
+        <p><strong>選考はどうでしたか？</strong></p>
+
+        <div class="quote-block">
+            選考は、言われていた通り、楽ではありませんでした。年収アップもしたいですが、何より『ただの情シスではなく、自社製品含めてセキュリティに主体的に関われるポジション』がレアでした。関連する求人があっても、経験不足や転職回数で落ちるし、最初の1か月くらいは全く良いニュースはなかったです。妥協して応募先を広げるみたいな話をしましたが、屋野さんの方が「うーん・・・微妙なんですが・・・」と渋々求人紹介されていました(笑)。結果的に、二人で相談して、『軸がずれるのでやめましょう』という結論になり、いちばん気になっていた会社から内定をいただきました。
+        </div>
+
+        <p><strong>全体を通しての感想を一言</strong></p>
+
+        <div class="quote-block">
+            長期間付き合っていただいたおかげで良いご縁と巡り会えました、ありがとうございます！
+        </div>
+
+        <hr>
+
+        <h2>担当者コメント</h2>
+
+        <p>Sさんは若いころのキャリアでかなり苦労をされて、20代後半で目標が明確になり、そこからの努力と実績には光るものがある方でした。ただただ転職回数や学歴で判断されるにはもったいない。私としても、このような方の人生に関われることは貴重な体験でしたので、各社のご担当者には<strong>「まずは実績を見てください！」</strong>と熱く依頼し続けました。</p>
+
+        <p>雇用の流動性があがっていく中、転職回数は誰でも増加して、Sさんのような成長カーブを辿っている方も増えるかもしれない。ただ、残念ながら、現状はネガティブ印象からのスタートになることが多い。私自身、事業責任者として採用する側の人間だったので、会社側の気持ちも分かります。ただ、Sさんのような優れた方々もたくさんいらっしゃいます。今後も我々が関わることで求職者の皆さんの評価がプラスになるように全力で支援できたらと思っています。</p>
+    </article>
+
+    <div class="cta-section">
+        <p>キャリアのご相談、お気軽にどうぞ。</p>
+        <a href="/contact.html" class="cta-btn">転職相談を申し込む →</a>
+    </div>
+
+    <footer class="footer">
+        <div>
+            <span class="footer-logo">Slo<span class="via">via</span></span>
+            <span class="footer-copy" style="margin-left:16px">© 2026 株式会社Slovia</span>
+        </div>
+    </footer>
+</body>
+</html>
